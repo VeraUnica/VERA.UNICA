@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title> VERA UNICA - італійські браслети з шармами</title>
+    <style>
+        body { font-family: 'Georgia', serif; margin: 0; background-color: #fdfaf7; color: #333; }
+        header { text-align: center; padding: 40px; background: #fff; border-bottom: 1px solid #eee; }
+        h1 { letter-spacing: 2px; text-transform: uppercase; }
+        
+        .container { max-width: 1000px; margin: 40px auto; display: grid; 
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 0 20px; }
+        
+        .product-card { background: #fff; padding: 15px; text-align: center; 
+                        transition: transform 0.3s; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .product-card:hover { transform: translateY(-5px); }
+        
+        .product-image { width: 100%; height: 250px; background: #eee; border-radius: 4px; 
+                         display: flex; align-items: center; justify-content: center; color: #999; }
+        
+        .price { font-weight: bold; color: #b8926a; margin: 15px 0; }
+        .buy-btn { background: #333; color: #fff; border: none; padding: 10px 20px; 
+                   cursor: pointer; text-transform: uppercase; font-size: 12px; }
+        .buy-btn:hover { background: #555; }
+    </style>
+</head>
+<body>
+
+<header style="text-align: center; padding: 50px 0;">
+    <a href="index.html">
+        <img src="logo.png" alt="Vera Unica Logo" style="width: 500px; max-width: 90%; height: auto; margin-bottom: 30px;">
+    </a>
+
+    <p style="color: #b8926a; 
+              font-family: 'Times New Roman', Times, serif; 
+              font-size: 11px; 
+              letter-spacing: 16px; 
+              text-transform: uppercase; 
+              margin-top: 10px;
+              font-weight: normal;">
+    Створи свій авторський браслет
+    </p>
+</header><div class="container">
+    <div class="product-card">
+    <img src="Lyna.jpg" alt="Кулон Луна" class="product-image">
+    <h3>Золотой кулон "Луна"</h3>
+    <p class="price">4 500 грн</p>
+    <button class="buy-btn">В корзину</button>
+</div>
+    <div class="product-card">
+        <div class="product-image">Фото браслета</div>
+        <h3>Браслет с жемчугом</h3>
+        <p class="price">3 200 грн</p>
+        <button class="buy-btn">В корзину</button>
+    </div>
+    <div class="product-card">
+        <div class="product-image">Фото колье</div>
+        <h3>Колье "Минимализм"</h3>
+        <p class="price">5 800 грн</p>
+        <button class="buy-btn">В корзину</button>
+    </div>
+</div>
+
+</body>
+</html>
+
