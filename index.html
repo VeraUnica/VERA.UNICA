@@ -1,66 +1,178 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title> VERA UNICA - італійські браслети з шармами</title>
-    <style>
-        body { font-family: 'Georgia', serif; margin: 0; background-color: #fdfaf7; color: #333; }
-        header { text-align: center; padding: 40px; background: #fff; border-bottom: 1px solid #eee; }
-        h1 { letter-spacing: 2px; text-transform: uppercase; }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERA UNICA — італійські браслети</title>
+    <style>.product-card img {
+    height: 75px;    /* Это сделает фото в 3-4 раза меньше */
+    object-fit: contain; /* Чтобы фото не обрезалось */
+    width: auto;
+    margin: 0 auto;
+}
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            background-color: #fdfaf7; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+        }
+
+        /* Кнопка меню в углу */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Боковое меню */
+        .sidebar {
+            position: fixed;
+            left: -250px; /* Спрятано за экраном */
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #fff;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            z-index: 999;
+            padding-top: 80px;
+        }
+
+        .sidebar.active {
+            left: 0; /* Выезжает */
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #333;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .sidebar a:hover {
+            background: #fdfaf7;
+            color: #b8926a;
+        }
+
+        /* Затемнение фона при открытом меню */
+        .overlay {
+            position: fixed;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 998;
+        }
+
+        .overlay.active { display: block; }
+
+        /* Шапка */
+        header { text-align: center; padding: 40px 20px; }
+        .logo { width: 300px; height: auto; display: block; margin: 0 auto; }
+        .subtitle {
+            font-size: 11px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Сетка каталога */
+        .catalog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 15px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .product-card img { width: 100%; border-radius: 10px; }
+        .product-card h3 { font-size: 16px; text-transform: uppercase; margin: 15px 0; }
+        .price { font-size: 18px; color: #b8926a; font-weight: bold; margin-bottom: 20px; }
         
-        .container { max-width: 1000px; margin: 40px auto; display: grid; 
-                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 0 20px; }
-        
-        .product-card { background: #fff; padding: 15px; text-align: center; 
-                        transition: transform 0.3s; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .product-card:hover { transform: translateY(-5px); }
-        
-        .product-image { width: 100%; height: 250px; background: #eee; border-radius: 4px; 
-                         display: flex; align-items: center; justify-content: center; color: #999; }
-        
-        .price { font-weight: bold; color: #b8926a; margin: 15px 0; }
-        .buy-btn { background: #333; color: #fff; border: none; padding: 10px 20px; 
-                   cursor: pointer; text-transform: uppercase; font-size: 12px; }
-        .buy-btn:hover { background: #555; }
+        .buy-btn {
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
     </style>
+
 </head>
 <body>
 
-<header style="text-align: center; padding: 50px 0;">
-    <a href="index.html">
-        <img src="logo.png" alt="Vera Unica Logo" style="width: 500px; max-width: 90%; height: auto; margin-bottom: 30px;">
-    </a>
+<button class="menu-btn" onclick="toggleMenu()" style="position: fixed; top: 10px; left: 10px; z-index: 1000; background: #1a1a1a; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-family: sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    ☰
+</button>
 
-    <p style="color: #b8926a; 
-              font-family: 'Times New Roman', Times, serif; 
-              font-size: 12px; 
-              letter-spacing: 5px; 
-              text-transform: uppercase; 
-              margin-top: 20px;
-              font-weight: normal;">
-    Створи свій авторський браслет
-    </p>
-</header><div class="container">
-    <div class="product-card">
-    <img src="Lyna.jpg" alt="Кулон Луна" class="product-image">
-    <h3>Золотой кулон "Луна"</h3>
-    <p class="price">4 500 грн</p>
-    <button class="buy-btn">В корзину</button>
+   <div class="sidebar" id="sidebar">
+    <a href="index.html">Головна сторінка</a>
+    <a href="novinki.html">Новинки</a>
+    
+    <a href="bracelets.html">Браслети</a> 
+    
+    <a href="charms.html">Шарми</a>
 </div>
-    <div class="product-card">
-        <div class="product-image">Фото браслета</div>
-        <h3>Браслет с жемчугом</h3>
-        <p class="price">3 200 грн</p>
-        <button class="buy-btn">В корзину</button>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <header>
+        <img src="logo.png" alt="Vera Unica Logo" class="logo">
+        <p class="subtitle">Створи свій авторський браслет</p>
+    </header>
+<div class="catalog-container">
+        <div class="product-card">
+            <img src="Lyna.jpg" alt="Золотий кулон Луна">
+            <h3>Золотий кулон "Луна"</h3>
+            <p class="price">4 500 грн</p>
+            <button class="buy-btn">В кошик</button>
+        </div>
+        
+        <div class="product-card">
+            <img src="braslet.pystoy.jpg" alt="Браслет">
+            <h3>Браслет з перлинами</h3>
+            <p class="price">3 200 грн</p>
+            <button class="buy-btn">В кошик</button>
+        </div>
     </div>
-    <div class="product-card">
-        <div class="product-image">Фото колье</div>
-        <h3>Колье "Минимализм"</h3>
-        <p class="price">5 800 грн</p>
-        <button class="buy-btn">В корзину</button>
-    </div>
-</div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
-
