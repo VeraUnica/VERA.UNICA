@@ -69,6 +69,71 @@ h1 {
     letter-spacing: 6px;       /* Додаємо простір між літерами */
     margin-top: 40px;
 }
+/* Універсальний стиль для цін зі знижкою */
+.price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відступ між цінами */
+    justify-content: center; /* Центрування, якщо картки по центру */
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.new-price {
+    color: #b8926a; /* Твій фірмовий золотистий */
+    font-weight: bold;
+    font-size: 18px;
+}
+/* Картка товару стає гнучким контейнером */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Елементи йдуть один за одним зверху вниз */
+    justify-content: space-between; /* Розтягує контент: фото зверху, ціна знизу */
+    height: 100%; /* Картки будуть однакової висоти */
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Фіксуємо місце для назви, щоб вона не штовхала ціну */
+.product-card h3 {
+    min-height: 50px; /* Висота приблизно для двох рядків тексту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Блок з ціною тепер завжди на своєму місці */
+.price-wrapper {
+    margin-top: auto; /* Це головний секрет — штовхає ціну в самий низ */
+    padding-top: 10px;
+}
+
+.product-card {
+  position: relative; /* важно */
+}
+
+.product-card::after {
+  content: "NEW";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #b8926a;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
     </style>
 </head> 
 <body>

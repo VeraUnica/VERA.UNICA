@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VERA UNICA — Браслети</title>
     <style>
+
         /* Тот самый бежевый фон, как на главной */
         body { 
             font-family: sans-serif; 
@@ -46,23 +47,7 @@
             object-fit: contain; 
             margin-bottom: 15px; 
         }
-/* Контейнер для рядка пошуку */
-.search-container {
-    text-align: center;
-    margin: 20px 0 30px 0;
-}
 
-/* Стиль самого вікна вводу */
-#searchInput {
-    width: 80%;
-    max-width: 350px;
-    padding: 10px 20px;
-    border: 1px solid #b8926a;
-    border-radius: 25px;
-    font-size: 16px;
-    outline: none;
-    font-family: sans-serif;
-}
         .price { color: #b8926a; font-weight: bold; }
 
         .buy-btn { 
@@ -85,16 +70,86 @@ h1 {
     letter-spacing: 6px;       /* Додаємо простір між літерами */
     margin-top: 40px;
 }
+/* Універсальний стиль для цін зі знижкою */
+.price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відступ між цінами */
+    justify-content: center; /* Центрування, якщо картки по центру */
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.new-price {
+    color: #b8926a; /* Твій фірмовий золотистий */
+    font-weight: bold;
+    font-size: 18px;
+}
+/* Картка товару стає гнучким контейнером */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Елементи йдуть один за одним зверху вниз */
+    justify-content: space-between; /* Розтягує контент: фото зверху, ціна знизу */
+    height: 100%; /* Картки будуть однакової висоти */
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Фіксуємо місце для назви, щоб вона не штовхала ціну */
+.product-card h3 {
+    min-height: 50px; /* Висота приблизно для двох рядків тексту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Блок з ціною тепер завжди на своєму місці */
+.price-wrapper {
+    margin-top: auto; /* Це головний секрет — штовхає ціну в самий низ */
+    padding-top: 10px;
+}
+
+.product-card {
+  position: relative;
+}
+
+.product-card.new::after {
+  content: "NEW";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #b8926a;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+.product-card.sale::before {
+  content: "SALE";
+  position: absolute;
+  top: 10px;
+  left: 10px; /* с другой стороны */
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
 
     </style>
 
 </head> 
-
 <body>
-<div class="search-container">
-    <input type="text" id="searchInput" onkeyup="searchProduct()" placeholder="Пошук браслетів...">
-</div>
-
 <button class="menu-btn" onclick="toggleMenu()" style="position: fixed; top: 10px; left: 10px; z-index: 1000; background: #1a1a1a; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-family: sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
     ☰
 </button><div id="sidebar" class="sidebar" style="position: fixed; left: -250px; top: 0; width: 250px; height: 100%; background: white; transition: 0.3s; z-index: 1001; box-shadow: 2px 0 10px rgba(0,0,0,0.1); padding-top: 60px; text-align: left;">
@@ -117,18 +172,34 @@ h1 {
 
     <div class="catalog-container">
 
- <div class="product-card">
+ <div class="product-card sale">
             <img src="braslet.pystoy.jpg">
             <h3>Срібний браслет</h3>
-            <p class="price">Стара ціна 499 грн</p>
+            <p class="price">799 грн</p>
         </div>
 
 <div class="product-card">
-            <img src="braslet.gold.jpg">
+            <img src="braslet.zolot.sereb.jpg">
+            <h3>Комбінований браслет (срібло)</h3>
+            <p class="price">850 грн</p>
+        </div>
+<div class="product-card">
+            <img src="braslet.zolot.sereb1.jpg">
+            <h3>Комбінований браслет (золото)</h3>
+            <p class="price">890 грн</p>
+        </div>
+
+<div class="product-card">
+            <img src="zolotuy.braslet.jpg">
             <h3>Золотий браслет</h3>
-            <p class="price">499 грн</p>
+            <p class="price">1150 грн</p>
 <span class="out-of-stock">немає в наявності</span>
     </div>
+<div class="product-card">
+            <img src="braslet.mix.jpg">
+            <h3>Браслет "Mix" (золото+срібло)</h3>
+            <p class="price">950 грн</p>
+        </div>
 
     </div>
 <script>

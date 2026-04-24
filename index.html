@@ -308,6 +308,109 @@
         font-size: 14px;  /* Зменшуємо текст інстаграму, щоб не вилазив за межі */
     }
 }
+/* Універсальний стиль для цін зі знижкою */
+.price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відступ між цінами */
+    justify-content: center; /* Центрування, якщо картки по центру */
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.new-price {
+    color: #b8926a; /* Твій фірмовий золотистий */
+    font-weight: bold;
+    font-size: 18px;
+}
+/* Універсальний стиль для цін зі знижкою */
+.price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відступ між цінами */
+    justify-content: center; /* Центрування, якщо картки по центру */
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.new-price {
+    color: #b8926a; /* Твій фірмовий золотистий */
+    font-weight: bold;
+    font-size: 18px;
+}
+/* Спочатку ховаємо блок з додатковими товарами */
+.hidden-content {
+    display: none; 
+    width: 100%;
+}
+
+/* Клас, який "вмикає" видимість (його додасть JavaScript) */
+.show-catalog {
+    display: block !important;
+}
+
+.product-scroll-container {
+    display: flex !important;      /* Выстраивает все элементы в ряд */
+    flex-wrap: nowrap !important;  /* Запрещает перенос на новую строку */
+    overflow-x: auto !important;   /* Добавляет горизонтальную прокрутку, если браслетов много */
+    gap: 20px;                     /* Расстояние между карточками */
+    padding: 20px;
+    scrollbar-width: none;         /* Скрывает полосу прокрутки в Firefox */
+}
+
+/* Скрывает полосу прокрутки в Chrome и Safari */
+.product-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+/* Це змушує браслети стояти в один рядок */
+.product-scroll-container {
+    display: flex !important;      /* Вишикувати в шеренгу */
+    flex-wrap: nowrap !important;  /* ЗАБОРОНИТИ переходити на новий рядок */
+    overflow-x: auto !important;   /* Дозволити гортати вбік */
+    gap: 20px;                     /* Відстань між ними */
+    padding: 20px;
+    scrollbar-width: none;         /* Приховати полосу прокрутки */
+}
+
+/* Налаштування самих карток, щоб вони не стискалися */
+.product-card {
+    min-width: 250px !important;   /* Ширина одного браслета */
+    flex: 0 0 auto !important;     /* Не давати їм звужуватися */
+    text-align: center;
+    border: 1px solid #eee;        /* Легка рамка, як на твоїх фото */
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.product-card {
+  width: 220px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  background: white;
+}
+
+.main-actions-container {
+    display: flex;
+    justify-content: center; /* Центрує кнопки по горизонталі */
+    align-items: center;
+    gap: 20px;               /* Відстань між кнопками */
+    margin-top: 30px;        /* Відступ від браслетів */
+    width: 100%;             /* На всю ширину */
+    flex-wrap: wrap;         /* Щоб на вузьких екранах вони ставали одна під одну */
+}
+
+
+
+
     </style>
 
 </head>
@@ -337,12 +440,6 @@
         <div class="slide"><img src="slide3.jpg" alt="Фото 3"></div> </div>
 </div>
 
-<div class="cta-section">
-    <a href="charms.html" class="main-btn">СТВОРИТИ СВІЙ АВТОРСЬКИЙ БРАСЛЕТ</a>
-</div>
-    </header>
-<div class="catalog-container">
-       
     </div>
 
     <script>
@@ -351,6 +448,71 @@
             document.getElementById('overlay').classList.toggle('active');
         }
     </script>
+<div class="expandable-catalog">
+    <h2 style="text-align: center; font-family: 'Times New Roman', serif;">ПОПУЛЯРНІ МОДЕЛІ</h2>
+
+    <div class="product-scroll-container">
+        <section>
+
+    <div class="product-scroll-container">
+        
+        <div class="product-card">
+            <img src="braslet.pystoy.jpg">
+            <h3>Срібний браслет</h3>
+            <p class="price">799 грн</p>
+        </div>
+
+
+        <div class="product-card">
+            <img src="foto2.jpg">
+            <h3>БРАСЛЕТ 2</h3>
+            <p>850 грн</p>
+        </div>
+ <div class="product-card">
+            <img src="foto1.jpg">
+            <h3>БРАСЛЕТ 1</h3>
+            <p>799 грн</p>
+        </div>
+
+        <div class="product-card">
+            <img src="foto2.jpg">
+            <h3>БРАСЛЕТ 2</h3>
+            <p>850 грн</p>
+        </div>
+    <div class="product-card">
+            <img src="foto1.jpg">
+            <h3>БРАСЛЕТ 1</h3>
+            <p>799 грн</p>
+        </div>
+
+        <div class="product-card">
+            <img src="foto2.jpg">
+            <h3>БРАСЛЕТ 2</h3>
+            <p>850 грн</p>
+        </div>
+ <div class="product-card">
+            <img src="foto1.jpg">
+            <h3>БРАСЛЕТ 1</h3>
+            <p>799 грн</p>
+        </div>
+
+        <div class="product-card">
+            <img src="foto2.jpg">
+            <h3>БРАСЛЕТ 2</h3>
+            <p>850 грн</p>
+        </div>
+
+
+        </div>
+</section>
+
+
+    </div> </div> <div class="main-actions-container">
+    <a href="charms.html" class="main-btn">СТВОРИТИ СВІЙ АВТОРСЬКИЙ БРАСЛЕТ</a>
+</div>
+       
+
+</div>
 <footer class="site-footer">
     <p>Замовити в Instagram:</p>
     <a href="https://www.instagram.com/vera.unica.ua?igsh=MWpscGhxanZkOTRqYg==" target="_blank" class="instagram-btn">
@@ -358,5 +520,21 @@
         @vera.unica.ua
     </a>
 </footer>
+<script>
+function toggleCatalog() {
+    // Знаходимо прихований блок і кнопку за їхніми "іменами" (ID)
+    var extra = document.getElementById("extra-products");
+    var btn = document.getElementById("toggleBtn");
+
+    // Перевіряємо: якщо блок вже показаний — ховаємо, якщо ні — показуємо
+    if (extra.classList.contains("show-catalog")) {
+        extra.classList.remove("show-catalog");
+        btn.innerHTML = "ДИВИТИСЯ ВСІ";
+    } else {
+        extra.classList.add("show-catalog");
+        btn.innerHTML = "ЗГОРНУТИ";
+    }
+}
+</script>
 </body>
 </html>

@@ -70,6 +70,57 @@ h1 {
     letter-spacing: 6px;       /* Додаємо простір між літерами */
     margin-top: 40px;
 }
+/* Універсальний стиль для цін зі знижкою */
+.price-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відступ між цінами */
+    justify-content: center; /* Центрування, якщо картки по центру */
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+}
+
+.new-price {
+    color: #b8926a; /* Твій фірмовий золотистий */
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Картка товару стає гнучким контейнером */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Елементи йдуть один за одним зверху вниз */
+    justify-content: space-between; /* Розтягує контент: фото зверху, ціна знизу */
+    height: 100%; /* Картки будуть однакової висоти */
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Фіксуємо місце для назви, щоб вона не штовхала ціну */
+.product-card h3 {
+    min-height: 50px; /* Висота приблизно для двох рядків тексту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Блок з ціною тепер завжди на своєму місці */
+.price-wrapper {
+    margin-top: auto; /* Це головний секрет — штовхає ціну в самий низ */
+    padding-top: 10px;
+}
+
+
+
 
     </style>
 </head> 
@@ -91,7 +142,7 @@ h1 {
     <header>
         <img src="logo.png" alt="Vera Unica Logo" class="logo">
         <p class="subtitle">СТВОРИ СВІЙ АВТОРСЬКИЙ БРАСЛЕТ</p>
-        <h1 style="color: #b8926a; text-transform: uppercase;">Браслети</h1>
+        <h1 style="color: #b8926a; text-transform: uppercase;">ЗНИЖКИ</h1>
     </header>
 
     <div class="catalog-container">
@@ -99,14 +150,16 @@ h1 {
  <div class="product-card">
             <img src="braslet.pystoy.jpg">
             <h3>Срібний браслет</h3>
-            <p class="price">499 грн</p>
+            <p class="price">799 грн</p>
         </div>
 
 <div class="product-card">
             <img src="braslet.gold.jpg">
             <h3>Золотий браслет</h3>
-            <p class="price">499 грн</p>
-        </div>
+            <div class="price-wrapper">
+        <span class="old-price">990 грн</span>
+        <span class="new-price">850 грн</span>
+    </div>
 
     </div>
 <script>
