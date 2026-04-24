@@ -86,14 +86,28 @@
         header { text-align: center; padding: 40px 20px; }
         .logo { width: 300px; height: auto; display: block; margin: 0 auto; }
         .subtitle {
-            font-size: 11px;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            font-weight: 300;
-            color: #555;
-            margin-top: 20px;
-        }
+    font-family: "Times New Roman", Times, serif; /* Змінюємо шрифт */
+    font-style: normal; /* Додаємо курсив для граційності */
+    letter-spacing: 3px; /* Трохи зменшуємо простір, щоб текст виглядав цілісно */
+    text-transform: none; /* Відміняємо великі літери, якщо хочеш м'якості */
+    font-size: 16px; /* Можна трохи збільшити */
+    color: #555; /* Робимо колір м'якшим */
+    margin-bottom: 40px;
+}
+<div class="slider-container">
+    <div class="slides">
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1000" alt="Esthetic Jewelry">
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1000" alt="Italian Style">
+        </div>
+    </div>
+</div>
 
+<div class="cta-section">
+    <a href="charms.html" class="main-btn">СТВОРИТИ СВІЙ БРАСЛЕТ</a>
+</div>
         /* Сетка каталога */
         .catalog-container {
             display: grid;
@@ -127,6 +141,140 @@
             text-transform: uppercase;
             font-size: 12px;
         }
+.slider-container {
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.slides {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    animation: slide-animation 10s infinite; /* Автоматичне гортання */
+}
+
+.slide {
+    width: 50%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Фото заповнює блок без деформації */
+}
+
+@keyframes slide-animation {
+    0% { transform: translateX(0); }
+    45% { transform: translateX(0); }
+    50% { transform: translateX(-50%); }
+    95% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: 'Times New Roman', serif;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #b8926a; /* Золотистий при наведенні */
+    transform: translateY(-3px);
+}
+/* Налаштування для 3-х слайдів */
+.slides {
+    display: flex;
+    width: 300%; /* Обов'язково 300%! */
+    height: 100%;
+    animation: slide-animation 15s infinite;
+}
+
+.slide {
+    width: 33.33%; /* Третина ширини */
+    height: 100%;
+}
+
+/* Анімація перемикання */
+@keyframes slide-animation {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(0); }
+    33% { transform: translateX(-33.33%); }
+    63% { transform: translateX(-33.33%); }
+    66% { transform: translateX(-66.66%); }
+    96% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
+
+/* Стиль кнопки, щоб вона не зникала */
+.cta-section {
+    text-align: center;
+    margin: 40px 0; /* Відступ зверху і знизу */
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: "Times New Roman", serif;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #b8926a; /* Твій фірмовий золотистий */
+    transform: translateY(-3px);
+}
+.site-footer {
+    background-color: #fdfdfd; /* Світлий, майже білий фон */
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-family: "Times New Roman", serif;
+}
+
+.site-footer p {
+    font-size: 16px;
+    color: #555;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.instagram-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.instagram-btn:hover {
+    color: #b8926a; /* Золотистий колір при наведенні */
+    transform: scale(1.05);
+}
     </style>
 
 </head>
@@ -148,7 +296,17 @@
 
     <header>
         <img src="logo.png" alt="Vera Unica Logo" class="logo">
-        <p class="subtitle">Створи свій авторський браслет</p>
+        <p class="subtitle">ТВІЙ МОДНИЙ КОНСТРУКТОР</p>
+<div class="slider-container">
+    <div class="slides">
+        <div class="slide"><img src="slide1.jpg" alt="Фото 1"></div>
+        <div class="slide"><img src="slide2.jpg" alt="Фото 2"></div>
+        <div class="slide"><img src="slide3.jpg" alt="Фото 3"></div> </div>
+</div>
+
+<div class="cta-section">
+    <a href="charms.html" class="main-btn">СТВОРИТИ СВІЙ АВТОРСЬКИЙ БРАСЛЕТ</a>
+</div>
     </header>
 <div class="catalog-container">
        
@@ -160,6 +318,12 @@
             document.getElementById('overlay').classList.toggle('active');
         }
     </script>
-
+<footer class="site-footer">
+    <p>Замовити в Instagram:</p>
+    <a href="https://www.instagram.com/vera.unica.ua?igsh=MWpscGhxanZkOTRqYg==" target="_blank" class="instagram-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+        @vera.unica.ua
+    </a>
+</footer>
 </body>
 </html>
