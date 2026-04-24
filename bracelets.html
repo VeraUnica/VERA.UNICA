@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VERA UNICA — Новинки</title>
+    <title>VERA UNICA — Браслети</title>
     <style>
-
         /* Тот самый бежевый фон, как на главной */
         body { 
             font-family: sans-serif; 
@@ -47,7 +46,23 @@
             object-fit: contain; 
             margin-bottom: 15px; 
         }
+/* Контейнер для рядка пошуку */
+.search-container {
+    text-align: center;
+    margin: 20px 0 30px 0;
+}
 
+/* Стиль самого вікна вводу */
+#searchInput {
+    width: 80%;
+    max-width: 350px;
+    padding: 10px 20px;
+    border: 1px solid #b8926a;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    font-family: sans-serif;
+}
         .price { color: #b8926a; font-weight: bold; }
 
         .buy-btn { 
@@ -74,7 +89,12 @@ h1 {
     </style>
 
 </head> 
+
 <body>
+<div class="search-container">
+    <input type="text" id="searchInput" onkeyup="searchProduct()" placeholder="Пошук браслетів...">
+</div>
+
 <button class="menu-btn" onclick="toggleMenu()" style="position: fixed; top: 10px; left: 10px; z-index: 1000; background: #1a1a1a; color: white; border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-family: sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
     ☰
 </button><div id="sidebar" class="sidebar" style="position: fixed; left: -250px; top: 0; width: 250px; height: 100%; background: white; transition: 0.3s; z-index: 1001; box-shadow: 2px 0 10px rgba(0,0,0,0.1); padding-top: 60px; text-align: left;">
@@ -100,7 +120,7 @@ h1 {
  <div class="product-card">
             <img src="braslet.pystoy.jpg">
             <h3>Срібний браслет</h3>
-            <p class="price">499 грн</p>
+            <p class="price">Стара ціна 499 грн</p>
         </div>
 
 <div class="product-card">
